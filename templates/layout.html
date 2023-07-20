@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+    code adapted from examples in:
+    Pallets, “Template Designer Documentation,” Jinja. [Online]. Available: https://jinja.palletsprojects.com/en/3.1.x/templates/. [Accessed: 22-Mar-2023]. 
+    TechnoDine, Create a dynamic website with python - python from scratch - creating website with Flask- Lesson 36. 2020. https://www.youtube.com/watch?v=5Wx7U58SKhg&ab_channel=TechnoDine
+-->
+<html>
+
+<body>
+    <header>
+        <strong>
+            <nav>
+                <ul class="menu">
+                    {% if current_user.is_active %}
+                        <li><a href="{{ url_for('auth.logout') }}">Log Out</a></li>
+                    {% else %}
+                        <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+                        <li><a href="{{ url_for('auth.register') }}">Register</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </strong>
+    </header>
+    <div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class=flashes>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+    <div class="container">
+        {%block content%}
+        {%endblock%}
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+{%extends "layout.html"%}
+{%block content%}
+<div class="register">
+    <h1>Register</h1>
+    <p>This is the register page</p>
+
+    <form method="POST">
+        <div>
+            <label for="email">Email</label>
+            <input type="email" placeholder="Please enter email" name="email" required>
+
+            <label for="user_name">Username</label>
+            <input type="text" placeholder="Please enter username" name="user_name" required>
+
+            <label for="password">Password</label>
+            <input type="password" placeholder="Please enter password" name="password" required>
+
+            <button type="submit">Register</button>
+        </div>
+    </form>
+</div>
+{%endblock%}
