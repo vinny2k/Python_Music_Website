@@ -130,7 +130,7 @@ def query_db():
     response = music.scan(FilterExpression=filter)
     
     for i in response["Items"]:
-        i.update({presigned_url:presigned_urls[i["artist"]]})
+        i.update({"presigned_url":presigned_urls[i["artist"]]})
         
     if len(response["Items"]) == 0:
         flash("No result is retrieved. Please query again.")
